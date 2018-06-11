@@ -1,4 +1,4 @@
-export default class{
+export default class Todo{
     private _title: string;
     private _isDone: boolean;
 
@@ -14,4 +14,8 @@ export default class{
     get isDone(): boolean {
         return this._isDone;
     }
+
+    set isDone(isDone :boolean){
+        this._isDone=isDone;
+    } 
 }

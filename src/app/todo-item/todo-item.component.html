@@ -1,7 +1,2 @@
-<div [ngSwitch]="listeTodo.length">
-  <p *ngSwitchCase="0">Aucune tâche à effectuer</p>
-  <p *ngSwitchCase="1">Une seule tâche à effectuer </p>
-  <p *ngSwitchDefault>Listes des tâches à effectuer :</p>
-</div>
-
-<li *ngFor="let todo of listeTodo; index as i; first as f ; last as l ; even as e"> {{todo.title | uppercase}} {{todo.isDone}} </li>
+<span [class.barred]="todo?.isDone">{{todo?.title | uppercase}}</span>
+<input type="checkbox" [checked]="todo?.isDone" (click)="barTitle()">

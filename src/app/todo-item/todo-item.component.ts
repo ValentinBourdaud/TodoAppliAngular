@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Todo from "../model/Todo";
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-todo-item',
@@ -8,17 +9,16 @@ import Todo from "../model/Todo";
 })
 export class TodoItemComponent implements OnInit {
 
-  listeTodo:Array<Todo> = [];
+  @Input()
+  todo:Todo;
 
   constructor() { }
 
   ngOnInit() {
-    this.listeTodo = [
-      new Todo('Faire la vaisselle', true),
-      new Todo('Envoyer un mail à Olivier', false),
-      new Todo('Manger une bonne raclette', true),
-      new Todo('Siffler sur la colline', false)
-      ]
+  
+  }
+  barTitle() {
+    this.todo.isDone = !this.todo.isDone;
   }
 
 }

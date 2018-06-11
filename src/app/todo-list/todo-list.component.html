@@ -4,4 +4,6 @@
   <p *ngSwitchDefault>Listes des tâches à effectuer :</p>
 </div>
 
-<li *ngFor="let todo of listeTodo; index as i; first as f ; last as l ; even as e"> {{todo.title}} {{todo.isDone}} </li> 
+<li *ngFor="let todo of listeTodo">
+  <app-todo-item [todo]="todo"></app-todo-item>
+</li> 
