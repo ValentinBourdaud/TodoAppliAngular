@@ -1,9 +1,4 @@
-<div [ngSwitch]="listeTodo.length">
-  <p *ngSwitchCase="0">Aucune tâche à effectuer</p>
-  <p *ngSwitchCase="1">Une seule tâche à effectuer </p>
-  <p *ngSwitchDefault>Listes des tâches à effectuer :</p>
-</div>
 
-<li *ngFor="let todo of listeTodo">
+<li *ngFor="let todo of todos">
   <app-todo-item [todo]="todo"></app-todo-item>
 </li> 

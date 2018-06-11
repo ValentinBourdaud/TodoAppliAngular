@@ -2,7 +2,11 @@ import Todo  from "../model/Todo";
 
 export default class TodoApi {
 
-    private _todos: Array<Todo> = [];
+    private _todos: Array<Todo> = [new Todo('Faire la vaisselle', true),
+    new Todo('Envoyer un mail à Olivier', false),
+    new Todo('Manger une bonne raclette', true),
+    new Todo('Siffler sur la colline', false)];
+
     fetchTodos(): Promise<Array<Todo>> {
         return new Promise((resolve) => {
             setTimeout(() => {
@@ -15,7 +19,7 @@ export default class TodoApi {
         this._todos.push(todo);
     }
 
-    removeTodo(todoDel: Todo) {
-        this._todos = this._todos.filter((todo) => todoDel != todo);
+    deleteTodo(todoDel: Todo) {
+        
     }
 }

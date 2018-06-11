@@ -18,8 +18,8 @@ export class TodoFormComponent implements OnInit {
   constructor(private todoService:TodoServices) { }
 
   handleClick() {
-    this.todoService.addTodo(this.todo);
-}
+    this.todoService.addTodo(new Todo(this.todo.title, this.todo.isDone));
+  }
 
   ngOnInit() {
   }

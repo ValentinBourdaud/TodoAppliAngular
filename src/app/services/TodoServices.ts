@@ -14,7 +14,7 @@ export default class TodoServices {
         this.todoApi.addTodo(todo);
     }
 
-    removeTodo(todo: Todo) {
-        this.todoApi.removeTodo(todo);
+    deleteTodo(todo: Todo) {
+        this.todoApi.deleteTodo(todo);
     }
 }

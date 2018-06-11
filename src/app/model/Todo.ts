@@ -11,6 +11,10 @@ export default class Todo{
         return this._title;
     }
 
+    set title(title){
+        this._title = title;
+    }
+
     get isDone(): boolean {
         return this._isDone;
     }
