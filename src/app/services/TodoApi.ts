@@ -16,10 +16,10 @@ export default class TodoApi {
     }
 
     addTodo(todo: Todo) {
-        this._todos.push(todo);
+        this._todos = [...this._todos,todo]
     }
 
     deleteTodo(todoDel: Todo) {
-        
+        this._todos.splice(this._todos.indexOf(todoDel), 1);
     }
 }
