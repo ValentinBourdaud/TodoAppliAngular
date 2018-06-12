@@ -7,6 +7,10 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import TodoApi from './services/TodoApi';
 import {FormsModule} from "@angular/forms";
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ApiService } from './services/api-service.service';
+import { HttpClient } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -17,11 +21,12 @@ import {FormsModule} from "@angular/forms";
   ],
   imports: [
     BrowserModule,
-    FormsModule
-
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
-    TodoApi
+    TodoApi,
+    ApiService,
   ],
   bootstrap: [AppComponent]
 })

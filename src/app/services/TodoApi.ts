@@ -7,6 +7,10 @@ export default class TodoApi {
     new Todo('Manger une bonne raclette', true),
     new Todo('Siffler sur la colline', false)];
 
+    constructor(){
+
+    }
+
     fetchTodos(): Promise<Array<Todo>> {
         return new Promise((resolve) => {
             setTimeout(() => {
