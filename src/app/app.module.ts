@@ -10,6 +10,7 @@ import {FormsModule} from "@angular/forms";
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api-service.service';
 import { HttpClient } from '@angular/common/http';
+import { InterceptorService } from './services/interceptor.service';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { HttpClient } from '@angular/common/http';
   providers: [
     TodoApi,
     ApiService,
+    {provide : HTTP_INTERCEPTORS, useClass : InterceptorService, multi : true}
   ],
   bootstrap: [AppComponent]
 })
