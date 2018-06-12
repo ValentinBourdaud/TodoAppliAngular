@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import Todo from "../model/Todo";
 import TodoServices from '../services/TodoServices';
+import { Observable } from 'rxjs';
+import { ApiServiceService } from '../services/api-service.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -12,21 +14,15 @@ import TodoServices from '../services/TodoServices';
 })
 export class TodoListComponent implements OnInit {
 
-  private _todos: Array<Todo>;
+   _todos: Observable<Array<Todo>>;
 
-  constructor(private todoService: TodoServices) { }
+  constructor(private api: ApiServiceService) { }
 
-   get todos(): Array<Todo> {
-    this.todoService.getTodos().then(value => this._todos = value);
-    return this._todos;
-  }
-
-   set todos(value: Array<Todo>) {
-    this._todos = value;
-  }
+  
 
   ngOnInit() {
-    this.todoService.getTodos().then(value => this._todos = value);
+    this._todos=this.api.getTodo();
+    //this.todoService.getTodos().then(value => this._todos = value);
   }
 
 }

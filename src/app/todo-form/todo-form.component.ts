@@ -1,27 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import Todo from '../model/Todo';
-import TodoServices from '../services/TodoServices';
+import { ApiServiceService } from '../services/api-service.service';
 
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
   styleUrls: ['./todo-form.component.css'],
   providers : [
-    TodoServices
+    ApiServiceService
   ]
 })
 
 export class TodoFormComponent implements OnInit {
-
-  todo:Todo = new Todo("", false);
-
-  constructor(private todoService:TodoServices) { }
+  todo:Todo;
+  constructor(private api:ApiServiceService) { }
 
   handleClick() {
-    this.todoService.addTodo(new Todo(this.todo.title, this.todo.isDone));
+    this.api.addTodo(new Todo(this.todo.title, this.todo.isDone));
   }
 
   ngOnInit() {
+    this.todo=new Todo("", false);
   }
 
 }
