@@ -17,7 +17,6 @@ export class TodoListComponent implements OnInit {
   constructor(private todoService: TodoServices) { }
 
    get todos(): Array<Todo> {
-    this.todoService.getTodos().then(value => this._todos = value);
     return this._todos;
   }
 

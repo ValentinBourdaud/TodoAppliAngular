@@ -11,12 +11,12 @@ export default class TodoApi {
         return new Promise((resolve) => {
             setTimeout(() => {
                 resolve(this._todos)
-            }, 1);
+            }, 1000);
         });
     }
 
     addTodo(todo: Todo) {
-        this._todos = [...this._todos,todo]
+        this._todos.push(todo);
     }
 
     deleteTodo(todoDel: Todo) {
