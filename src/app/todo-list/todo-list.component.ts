@@ -9,7 +9,7 @@ import { ApiServiceService } from '../services/api-service.service';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css'],
   providers: [
-    TodoServices
+    ApiService
   ]
 })
 export class TodoListComponent implements OnInit {
@@ -17,9 +17,6 @@ export class TodoListComponent implements OnInit {
    _todos: Observable<Array<Todo>>;
 
   constructor(private api: ApiServiceService) { }
-
-  
-
   ngOnInit() {
     this._todos=this.api.getTodo();
     //this.todoService.getTodos().then(value => this._todos = value);

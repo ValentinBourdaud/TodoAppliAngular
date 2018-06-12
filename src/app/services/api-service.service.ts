@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import Todo from '../model/Todo';
 
 const API_BASE_URL: string = 'http://localhost:3000/';
+
 const API_TODO: string = 'todos/';
 
 @Injectable()
@@ -26,4 +27,5 @@ export class ApiServiceService {
   public putTodo(todo:Todo){
     return this.http.put<Todo>(`${API_BASE_URL}${API_TODO}${todo.id}`,todo).subscribe();
   }
+
 }

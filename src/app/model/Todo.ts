@@ -4,4 +4,4 @@ export default class Todo {
         this.title = title;
         this.isDone = isDone;
     }
-}
+

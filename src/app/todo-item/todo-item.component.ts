@@ -23,7 +23,6 @@ export class TodoItemComponent implements OnInit {
     this.todo.isDone = !this.todo.isDone;
     this.todoservice.putTodo(this.todo);
   }
-
   deleteTodo(){
     this.todoservice.deleteTodo(this.todo);
   }

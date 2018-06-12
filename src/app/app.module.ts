@@ -22,7 +22,6 @@ import { ApiServiceService } from './services/api-service.service';
     BrowserModule,
     FormsModule,
     HttpClientModule
-
   ],
   providers: [
     TodoApi,
