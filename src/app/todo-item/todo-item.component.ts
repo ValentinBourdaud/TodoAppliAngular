@@ -7,9 +7,7 @@ import TodoServices from '../services/TodoServices';
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.css'],
-  providers : [ 
-    TodoServices
-  ]
+  providers:[TodoServices]
 })
 export class TodoItemComponent implements OnInit {
 
@@ -23,11 +21,11 @@ export class TodoItemComponent implements OnInit {
   }
   barTitle() {
     this.todo.isDone = !this.todo.isDone;
-    this.todoservice.majTodo(this.todo);
+    this.todoservice.putTodo(this.todo);
   }
-
-  deleteTodo(todo:Todo){
+  deleteTodo(){
     this.todoservice.deleteTodo(this.todo);
   }
+
 
 }

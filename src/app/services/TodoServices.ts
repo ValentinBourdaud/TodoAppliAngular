@@ -1,25 +1,26 @@
 import  Todo  from "../model/Todo";
-import TodoApi from "./TodoApi";
 import { Injectable } from "@angular/core";
-import { ApiService } from "./api-service.service";
+import { ApiServiceService } from "./api-service.service";
+import { Observable } from "rxjs";
+
+
 
 @Injectable()
 export default class TodoServices {
-
-    constructor(private todoApi: TodoApi, private apiservice : ApiService) { }
-    getTodos(): Promise<Array<Todo>> {       
-        return this.todoApi.fetchTodos();
+    constructor(private api:ApiServiceService) { }
+    getTodos(): Observable<Array<Todo>> {
+        return this.api.getTodo();
     }
 
     addTodo(todo: Todo) {
-        this.apiservice.createTodo(todo).subscribe();
+        this.api.addTodo(todo);
     }
 
     deleteTodo(todo: Todo) {
-        this.apiservice.deleteTodoById(todo).subscribe();
+        this.api.deleteTodo(todo);
     }
 
-    majTodo(todo:Todo){
-        this.apiservice.updateTodoById(todo).subscribe();
+    putTodo(todo:Todo){
+        this.api.putTodo(todo);
     }
 }

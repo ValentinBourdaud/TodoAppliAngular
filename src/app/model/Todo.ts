@@ -1,12 +1,7 @@
-export default class Todo{
-     public title: string;
-     public isDone: boolean;
-     public id : number;
-
-    constructor(title : string, isDone : boolean){
+export default class Todo {
+    id: number;
+    constructor(public title: string, public isDone: boolean) {
         this.title = title;
         this.isDone = isDone;
-    
     }
 
-}

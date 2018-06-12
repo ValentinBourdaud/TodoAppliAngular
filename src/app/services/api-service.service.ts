@@ -1,37 +1,31 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import Todo from '../model/Todo';
 
 const API_BASE_URL: string = 'http://localhost:3000/';
-const API_TODOS: string = 'todos';
 
-@Injectable({
-  providedIn: 'root',
- 
-})
-export class ApiService {
+const API_TODO: string = 'todos/';
 
-  constructor(private http : HttpClient) { }
+@Injectable()
+export class ApiServiceService {
 
-  getTodos():Observable <Array<Todo>> {
-    return <Observable <Array<Todo>>> this.http.get(`${API_BASE_URL}${API_TODOS}`);
-    }
+  constructor(private http:HttpClient) { }
 
-  /*getTodoById(id : number){
-    return this.http.get(`${API_BASE_URL}${API_TODOS}/${id}`);
-  }*/
-
-  createTodo(todo:Todo):Observable<Todo>{
-    return <Observable<Todo>> this.http.post(`${API_BASE_URL}${API_TODOS}`, todo);
+  public getTodo():Observable<Array<Todo>>{
+    return <Observable<Array<Todo>>>this.http.get(`${API_BASE_URL}${API_TODO}`);
   }
 
-  deleteTodoById(todo :Todo){
-    return this.http.delete(`${API_BASE_URL}${API_TODOS}/${todo.id}`);
+  public addTodo(todo:Todo){
+    return this.http.post(`${API_BASE_URL}${API_TODO}`,todo).subscribe();
   }
 
-  updateTodoById(todo :Todo){
-    return this.http.put<Todo>(`${API_BASE_URL}${API_TODOS}/${todo.id}`, todo);
+  public deleteTodo(todo:Todo){
+    return this.http.delete(`${API_BASE_URL}${API_TODO}${todo.id}`).subscribe();
+  }
+
+  public putTodo(todo:Todo){
+    return this.http.put<Todo>(`${API_BASE_URL}${API_TODO}${todo.id}`,todo).subscribe();
   }
 
 }
